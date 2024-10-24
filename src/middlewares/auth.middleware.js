@@ -16,6 +16,8 @@ export const verifyJWT = asyncHandler(async(req, _ ,next) =>{
     if(!user){
      throw new ApiError(401,"Invalid Access Token")
     }
+
+    const avatar = await upload
  
     req.user = user
     next()
