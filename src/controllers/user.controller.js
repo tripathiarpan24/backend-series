@@ -208,7 +208,7 @@ const changeCurrentPassword = asyncHandler(async(req,res)=>{
         throw new ApiError(400,"Invalid old password")
     }
     user.password = newPassword
-    await user.save(validateBeforeSave:false)
+    await user.save({validateBeforeSave : false})
 
     return res
     .status(200)
@@ -367,6 +367,8 @@ const getUserChannelProfile = asyncHandler(async(req,res)=>{
         .status(200)
         .json(new ApiResponse(200,channel[0], "Channel fetched successfully"))
 })
+
+ const getWatchHistory 
 export {
     registerUser,
     loginUser,
@@ -377,5 +379,6 @@ export {
     updateAccountDetails,
     updateAvatar,
     updateCoverImage,
-    getUserChannelProfile
+    getUserChannelProfile,
+
 }
